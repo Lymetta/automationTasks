@@ -14,12 +14,19 @@ public class PageObject {
     }
 
     public void clickElement(String selector, String type){
-        if(type.equals("linkText")){
-            waitUntilClickable(selector, "linkText");
-            driver.findElement(By.linkText(selector)).click();
-        }else if(type.equals("cssSelector")){
-            waitUntilClickable(selector, "cssSelector");
-            driver.findElement(By.cssSelector(selector)).click();
+        switch (type) {
+            case "linkText" -> {
+                waitUntilClickable(selector, "linkText");
+                driver.findElement(By.linkText(selector)).click();
+            }
+            case "cssSelector" -> {
+                waitUntilClickable(selector, "cssSelector");
+                driver.findElement(By.cssSelector(selector)).click();
+            }
+            case "xpath" -> {
+                waitUntilClickable(selector, "xpath");
+                driver.findElement(By.xpath(selector)).click();
+            }
         }
 
     }
@@ -33,12 +40,13 @@ public class PageObject {
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
-        if (type.equals("linkText")){
-            wait.until(ExpectedConditions.elementToBeClickable(By.linkText(element)));
-        }else if(type.equals("cssSelector"))
-        {
-            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(element)));
-        };
+
+        switch (type) {
+            case "linkText" -> wait.until(ExpectedConditions.elementToBeClickable(By.linkText(element)));
+            case "cssSelector" -> wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(element)));
+            case "xpath" -> wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
+        }
+
 
 
     }

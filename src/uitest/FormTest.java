@@ -33,7 +33,6 @@ public class FormTest extends AbstractTest {
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#contact-page > div.row > div.col-sm-8 > div > div.status.alert.alert-success")));
 
         WebElement actual = driver.findElement(By.cssSelector("#contact-page > div.row > div.col-sm-8 > div > div.status.alert.alert-success"));
-        //#contact-page > div.row > div.col-sm-8 > div > div.status.alert.alert-success
 
         assertEquals ("Success! Your details have been submitted successfully.", actual.getText());
 

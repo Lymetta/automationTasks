@@ -21,9 +21,6 @@ public class SelectorTest extends AbstractTest {
     @Test
     public void testFindLastProductAndVerifyPrice() throws InterruptedException {
 
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h2[contains(text(), 'Rs. 1389')]")));
-
         WebElement actual = driver.findElement(By.xpath("//h2[contains(text(), 'Rs. 1389')]"));
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", actual);
@@ -41,9 +38,6 @@ public class SelectorTest extends AbstractTest {
 
         WebElement actual = driver.findElement(By.xpath("//*[contains(text(), 'feedback@automationexercise.com')]"));
 
-
         assertEquals("feedback@automationexercise.com", actual.getText());
-
-
     }
 }

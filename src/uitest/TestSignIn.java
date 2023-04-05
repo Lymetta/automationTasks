@@ -11,6 +11,6 @@ public class TestSignIn extends AbstractTest {
 
        Thread.sleep(1000);
 
-        assertEquals("https://automationexercise.com/", driver.getCurrentUrl());
+       assertEquals("https://automationexercise.com/", driver.getCurrentUrl());
     }
 }
